@@ -1,0 +1,13 @@
+.workouts{
+    background-color: $color-gray-dark;
+
+    &__header{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__logo{
+        width: 15rem;
+        height: 15rem;
+    }
+}

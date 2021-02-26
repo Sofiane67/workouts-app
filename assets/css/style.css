@@ -1,0 +1,30 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.workouts {
+  background-color: #34495E;
+}
+.workouts__header {
+  display: flex;
+  justify-content: center;
+}
+.workouts__logo {
+  width: 15rem;
+  height: 15rem;
+}
+
+/*# sourceMappingURL=style.css.map */
