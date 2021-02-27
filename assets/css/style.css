@@ -7,16 +7,19 @@ body {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+  font-size: 1.6rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: minmax(min-content, 40rem) 1fr;
 }
 
 .workouts {
   background-color: #34495E;
+  padding: 0 2rem;
 }
 .workouts__header {
   display: flex;
@@ -25,6 +28,70 @@ body {
 .workouts__logo {
   width: 15rem;
   height: 15rem;
+}
+
+.form {
+  background-color: #435d78;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2rem rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 15rem);
+  grid-gap: 1.5rem 2rem;
+  height: auto;
+  transition: all 0.5s, transform 1ms;
+}
+.form--hidden {
+  transform: translateY(-50rem);
+  height: 0;
+  padding: 0 2.25rem;
+  opacity: 0;
+}
+.form__row--btn {
+  grid-column: 1/3;
+  justify-self: center;
+  position: relative;
+}
+.form__row--btn::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: linear-gradient(#28b485, #7ed56f);
+  z-index: 10;
+  mix-blend-mode: lighten;
+  border-radius: 5px;
+}
+.form__label {
+  color: #eee;
+}
+.form__input {
+  height: 3rem;
+  width: 100%;
+  border: 0;
+  margin-top: 0.5rem;
+  outline: none;
+  background-color: #eee;
+  border-radius: 3px;
+}
+.form__input::placeholder {
+  transform: translateX(1rem);
+}
+.form__btn {
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: 0;
+  outline: none;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,5 @@
+const form = document.querySelector(".form");
+
 class App{
     map;
     constructor(){
@@ -35,6 +37,15 @@ class App{
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
+
+        //Afficher formulaire lorsqu'on click sur la carte
+        this.map.on("click", this.showForm)
+    }
+
+    //Afficher le formulaire
+
+    showForm(){
+        form.classList.remove("form--hidden")
     }
 
 }

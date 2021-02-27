@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="node_modules/leaflet/dist/leaflet.js"></script>
@@ -19,6 +21,30 @@
                     <img src="assets/images/logo.png" alt="logo" class="workouts__logo">
                 </div>
             </header>
+            <form class="form form--hidden">
+                <div class="form__row">
+                    <label for="type" class="form__label">Type</label>
+                    <select name="type" id="type" class="form__input">
+                        <option value="running">Course à pied</option>
+                        <option value="cycling">Vélo</option>
+                    </select>
+                </div>
+                <div class="form__row">
+                    <label for="date" class="form__label">Date</label>
+                    <input type="date" class="form__input form__input--date">
+                </div>
+                <div class="form__row">
+                    <label for="duree" class="form__label">Durée</label>
+                    <input type="number" class="form__input form__input--duree" placeholder="minutes">
+                </div>
+                <div class="form__row">
+                    <label for="distance" class="form__label">Distance</label>
+                    <input type="number" class="form__input form__input--distance" placeholder="km">
+                </div>
+                <div class="form__row form__row--btn">
+                    <input type="submit" value="Enregirstrer" class="form__btn">
+                </div>
+            </form>
         </aside>
         <section id="map"></section>
     </main>
