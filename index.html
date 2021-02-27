@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,18 +24,18 @@
             <form class="form form--hidden">
                 <div class="form__row">
                     <label for="type" class="form__label">Type</label>
-                    <select name="type" id="type" class="form__input">
+                    <select name="type" id="type" class="form__input form__input--type">
                         <option value="running">Course à pied</option>
                         <option value="cycling">Vélo</option>
                     </select>
                 </div>
                 <div class="form__row">
                     <label for="date" class="form__label">Date</label>
-                    <input type="date" class="form__input form__input--date">
+                    <input type="date" data-date-format="DD MMMM YYYY" class="form__input form__input--date">
                 </div>
                 <div class="form__row">
                     <label for="duree" class="form__label">Durée</label>
-                    <input type="number" class="form__input form__input--duree" placeholder="minutes">
+                    <input type="number" class="form__input form__input--duration" placeholder="minutes">
                 </div>
                 <div class="form__row">
                     <label for="distance" class="form__label">Distance</label>

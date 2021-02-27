@@ -1,9 +1,9 @@
-const Workout = require("./workout");
-
+import Workout from "./workout.js";
 export default class Running extends Workout{
-    constructor(distance, duration, date){
-        super(distance, duration, date);
+    constructor(distance, duration, date, coords){
+        super(distance, duration, date, coords);
         this.calcPace();
+        this.setTitle();
     }
 
     calcPace(){
