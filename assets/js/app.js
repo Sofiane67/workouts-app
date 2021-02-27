@@ -1,3 +1,4 @@
+import Cycling from './class/cycling.js';
 import Running from './class/running.js';
 import dom from './dom.js';
 
@@ -74,30 +75,35 @@ export default class App {
         const {lat, lng} = this.mapEvent.latlng;
         //Type workout
         const type = dom.inputType.value;
+        console.log(type);
 
-
+        //Création d'un entrainement
         if(type === "running"){
             workout = new Running(distance, duration, date, [lat, lng]);
         }
+
+        if (type === "cycling") {
+            workout = new Cycling(distance, duration, date, [lat, lng]);
+        }
+
+        //Marquer le lieu de l'entrainement sur la carte
         this.displayMarker(workout);
 
+        //Réinitialiser le formulaire et le cacher après la création d'un entrainement
         this.hideForm();
         dom.inputDistance.value = "";
         dom.inputDuration.value= "";
         dom.inputDate.value= "";
     }
 
-   
-
     //Ajoute un markeur sur la carte
     displayMarker(workout){
         const popup = L.popup({
-            className: "popup-box",
+            className: `popup-box--${workout.type}`,
             minWidth: 150,
             autoClose: false,
             closeOnClick: false
-
-        }).setContent(`<div class="popup-box__icon-box"><img src="../assets/images/running.png" class="popup-box__icon"></div> ${workout.title}`);
+        }).setContent(`<span class="popup-box__icon">${workout.type === "running" ? "🏃" : "🚴"}</span> ${workout.title}`);
 
         L.marker(workout.coords).addTo(this.map)
             .bindPopup(popup)

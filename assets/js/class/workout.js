@@ -1,4 +1,3 @@
-
 export default class Workout{
     constructor(distance, duration, date, coords){
         this.distance = distance;

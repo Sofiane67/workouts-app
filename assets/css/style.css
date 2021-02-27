@@ -3,12 +3,19 @@ html {
   box-sizing: border-box;
 }
 
-body {
+* {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
+}
+
+li {
+  list-style: none;
 }
 
 .main {
@@ -17,15 +24,15 @@ body {
   grid-template-columns: minmax(min-content, 40rem) 1fr;
 }
 
-.workouts {
+.aside {
   background-color: #34495E;
   padding: 0 2rem;
 }
-.workouts__header {
+.aside__header {
   display: flex;
   justify-content: center;
 }
-.workouts__logo {
+.aside__logo {
   width: 15rem;
   height: 15rem;
 }
@@ -82,18 +89,30 @@ body {
   border-radius: 5px;
 }
 
+.popup-box--running .leaflet-popup-content-wrapper {
+  border-bottom: solid #28b485 0.5rem;
+}
+.popup-box--running .leaflet-popup-tip {
+  background: #28b485;
+}
+.popup-box--cycling .leaflet-popup-content-wrapper {
+  border-bottom: solid #ecac35 0.5rem;
+}
+.popup-box--cycling .leaflet-popup-tip {
+  background: #ecac35;
+}
 .popup-box__icon {
-  height: 4rem;
+  font-size: 2rem;
 }
 
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+.leaflet-popup-content-wrapper {
   background: #34495E;
 }
 
 .leaflet-popup-content {
   color: #eee;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 500;
   display: flex;
   align-items: center;
