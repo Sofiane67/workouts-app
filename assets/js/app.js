@@ -86,6 +86,9 @@ export default class App {
             workout = new Cycling(distance, duration, date, [lat, lng]);
         }
 
+        //Affficher workout dans la liste 
+        this.workoutList(workout);
+
         //Marquer le lieu de l'entrainement sur la carte
         this.displayMarker(workout);
 
@@ -100,7 +103,7 @@ export default class App {
     displayMarker(workout){
         const popup = L.popup({
             className: `popup-box--${workout.type}`,
-            minWidth: 150,
+            minWidth: 200,
             autoClose: false,
             closeOnClick: false
         }).setContent(`<span class="popup-box__icon">${workout.type === "running" ? "🏃" : "🚴"}</span> ${workout.title}`);
@@ -108,6 +111,30 @@ export default class App {
         L.marker(workout.coords).addTo(this.map)
             .bindPopup(popup)
             .openPopup()
+    }
+
+    workoutList(workout){
+        const txt = 
+        `<div class="workout workout--${workout.type}">
+            <p class="workout__title">${workout.title}</p>
+            <div class="workout__details">
+                <p>
+                    <span class="workout__icon">${workout.type === "running" ?"🏃":"🚴‍♂️"}</span>
+                    10 Km
+                </p>
+                <p>
+                    <span class="workout__icon">⏱</span>
+                    ${workout.duration} Min
+                </p>
+
+                <p>
+                    <span class="workout__icon">⚡️</span>
+                    ${workout.type === "running" ? workout.pace + " Min/Km" : workout.speed + " Km/h"}
+                </p>
+            </div>
+        </div>
+        `
+        dom.form.insertAdjacentHTML("afterend", txt);
     }
 }
 

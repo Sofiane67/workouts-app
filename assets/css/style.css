@@ -27,6 +27,7 @@ li {
 .aside {
   background-color: #34495E;
   padding: 0 2rem;
+  overflow: scroll;
 }
 .aside__header {
   display: flex;
@@ -112,12 +113,39 @@ li {
 .leaflet-popup-content {
   color: #eee;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin: 0.5rem 1.9rem;
+}
+
+.workout {
+  color: #eee;
+  background-color: #435d78;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2rem rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2.5rem 0;
+}
+.workout--running {
+  border-left: solid #28b485 0.5rem;
+  border-right: solid #28b485 0.5rem;
+}
+.workout--cycling {
+  border-left: solid #ecac35 0.5rem;
+  border-right: solid #ecac35 0.5rem;
+}
+.workout__title {
+  font-weight: 600;
+}
+.workout__details {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */

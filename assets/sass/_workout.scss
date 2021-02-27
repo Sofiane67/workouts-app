@@ -1,0 +1,31 @@
+.workout{
+    color: #eee;
+    background-color: lighten($color-gray-dark, 8%);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 2rem rgba(0,0,0,.5);
+    padding: 2rem;
+    margin: 2.5rem 0;
+
+    &--running{
+        border-left: solid #28b485 .5rem;  
+        border-right: solid #28b485 .5rem;  
+    }
+
+    &--cycling{
+        border-left: solid #ecac35 .5rem;  
+        border-right: solid #ecac35 .5rem;  
+    }
+
+    &__title{
+        font-weight: 600;
+    }
+
+    
+    &__details{
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+    }
+}

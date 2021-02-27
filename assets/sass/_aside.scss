@@ -1,6 +1,7 @@
 .aside{
     background-color: $color-gray-dark;
     padding: 0 2rem;
+    overflow: scroll;
 
     &__header{
         display: flex;

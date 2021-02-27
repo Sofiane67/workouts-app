@@ -2,6 +2,7 @@ import Workout from "./workout.js";
 
 export default class Cycling extends Workout {
     type = "cycling";
+    name = "Vélo";
     constructor(distance, duration, date, coords) {
         super(distance, duration, date, coords);
         this.calcSpeed();
@@ -9,7 +10,7 @@ export default class Cycling extends Workout {
     }
 
     calcSpeed() {
-        this.speed = this.distance / this.duration;
+        this.speed = this.distance / (this.duration / 60);
         return this.speed;
     }
 }

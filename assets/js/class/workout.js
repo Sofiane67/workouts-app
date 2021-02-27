@@ -25,7 +25,7 @@ export default class Workout{
         const date = new Date(this.date);
         console.log(this.date)
         console.log(date.getMonth())
-        this.title = `${date.getDate()} ${monthList[date.getMonth() - 1]} ${date.getFullYear()}`;
+        this.title = `${this.name} - ${date.getDate()} ${monthList[date.getMonth() - 1]} ${date.getFullYear()}`;
     }
 }
 
