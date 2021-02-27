@@ -5,10 +5,16 @@ import dom from './dom.js';
 export default class App {
     map;
     mapEvent;
+    workouts = [];
     constructor() {
         this.displayMap();
         dom.form.addEventListener("submit", this.newWorkout.bind(this));
         dom.inputBtn.addEventListener("click", this.newWorkout.bind(this));
+
+        //Affiche la liste des workouts stockés du localStorage
+        if(localStorage.getItem("workouts")){
+            this.getLocalStorage().forEach(work => this.workoutList(work));
+        }
     }
 
     //Affiche la carte centré sur la géolocalisation de l'utilisateur se la géolocalisation est activé, sinon il saisie le nom d'une ville pour centrer la carte
@@ -44,7 +50,12 @@ export default class App {
         }).addTo(this.map);
 
         //Afficher formulaire lorsqu'on click sur la carte
-        this.map.on("click", this.showForm.bind(this))
+        this.map.on("click", this.showForm.bind(this));
+
+        //Affiche les markeur pour les workouts stockés dans le localStorage
+        if (localStorage.getItem("workouts")) {
+            this.getLocalStorage().forEach(work => this.displayMarker(work));
+        }
     }
 
     //Afficher le formulaire
@@ -86,6 +97,11 @@ export default class App {
             workout = new Cycling(distance, duration, date, [lat, lng]);
         }
 
+        //Ajout d'un entrainement dans le tableau workouts
+        this.workouts.push(workout)
+        console.log(this.workouts)
+        this.setLocalStorage(this.workouts);
+
         //Affficher workout dans la liste 
         this.workoutList(workout);
 
@@ -113,6 +129,7 @@ export default class App {
             .openPopup()
     }
 
+    //Affiche les workouts dans la liste
     workoutList(workout){
         const txt = 
         `<div class="workout workout--${workout.type}">
@@ -135,6 +152,17 @@ export default class App {
         </div>
         `
         dom.form.insertAdjacentHTML("afterend", txt);
+    }
+
+    setLocalStorage(array){
+        const data = JSON.stringify(array);
+        localStorage.setItem("workouts", data);
+    }
+
+    getLocalStorage(){
+        const data = localStorage.getItem("workouts");
+        return JSON.parse(data);
+        console.log(JSON.parse(data));
     }
 }
 
